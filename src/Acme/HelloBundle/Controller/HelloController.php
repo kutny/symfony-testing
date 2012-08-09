@@ -2,18 +2,25 @@
 // src/Acme/HelloBundle/Controller/HelloController.php
 namespace Acme\HelloBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
-class HelloController extends Controller
+/**
+ * @Route(service = "acme_hello.hello")
+ */
+class HelloController
 {
+	private $twigEngine;
+
+	public function __construct(\Symfony\Bundle\TwigBundle\TwigEngine $twigEngine) {
+		$this->twigEngine = $twigEngine;
+	}
 
 	/**
 	 * @Route("/hello/{name}")
 	 */
 	public function indexAction($name)
 	{
-		return $this->render(
+		return $this->twigEngine->renderResponse(
 			'AcmeHelloBundle:Hello:index.html.twig',
 			array(
 				'name' => $name,
