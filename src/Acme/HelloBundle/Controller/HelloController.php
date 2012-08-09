@@ -1,5 +1,4 @@
 <?php
-// src/Acme/HelloBundle/Controller/HelloController.php
 namespace Acme\HelloBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
