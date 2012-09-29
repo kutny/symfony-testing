@@ -1,0 +1,5 @@
+<project name="zf-tutorial" default="main">
+	<target name="main">
+		<echo message="Phing works!"/>
+	</target>
+</project>
