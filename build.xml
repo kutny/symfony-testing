@@ -1,8 +1,20 @@
 <project name="zf-tutorial" default="main">
+	<fileset id="collabimTests" dir="${project.basedir}/vendor/collabim">
+		<include name="**/*.php"/>
+	</fileset>
+
 	<target name="build" depends="lint" description="Meta target, spouští ostatní targety"/>
 
 	<target name="main">
 		<echo message="Phing works!"/>
+	</target>
+
+	<target name="cleanup" description="Workspace cleanup">
+		<delete dir="${project.basedir}/build"/>
+	</target>
+
+	<target name="prepare" depends="cleanup" description="Workspace preparation">
+		<mkdir dir="${project.basedir}/build"/>
 	</target>
 
 	<target name="lint" description="PHP Lint check">
@@ -11,5 +23,14 @@
 				<include name="**/*.php"/>
 			</fileset>
 		</phplint>
+	</target>
+
+	<target name="phpunit" depends="prepare" description="PHPUnit tests">
+		<phpunit printsummary="true" haltonfailure="true" haltonerror="true">
+			<formatter todir="${project.basedir}/build" outfile="phpunit-report.xml" type="xml"/>
+			<batchtest>
+				<fileset refid="collabimTests" />
+			</batchtest>
+		</phpunit>
 	</target>
 </project>
