@@ -1,4 +1,4 @@
-<project name="zf-tutorial" default="build">
+<project name="symfony-test" default="build">
 	<target name="build" depends="prepare, lint, phpunit" description="Meta target, spouští ostatní targety"/>
 
 	<fileset id="collabimTests" dir="${project.basedir}/vendor/collabim">
