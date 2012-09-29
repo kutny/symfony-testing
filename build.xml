@@ -1,4 +1,6 @@
 <project name="zf-tutorial" default="main">
+	<target name="build" depends="lint" description="Meta target, spouští ostatní targety"/>
+
 	<target name="main">
 		<echo message="Phing works!"/>
 	</target>
