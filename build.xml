@@ -2,4 +2,12 @@
 	<target name="main">
 		<echo message="Phing works!"/>
 	</target>
+
+	<target name="lint" description="PHP Lint check">
+		<phplint haltonfailure="true" level="info">
+			<fileset dir="${project.basedir}/vendor/collabim">
+				<include name="**/*.php"/>
+			</fileset>
+		</phplint>
+	</target>
 </project>
