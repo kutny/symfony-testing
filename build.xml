@@ -1,13 +1,9 @@
-<project name="zf-tutorial" default="main">
+<project name="zf-tutorial" default="build">
+	<target name="build" depends="prepare, lint, phpunit" description="Meta target, spouští ostatní targety"/>
+
 	<fileset id="collabimTests" dir="${project.basedir}/vendor/collabim">
 		<include name="**/*.php"/>
 	</fileset>
-
-	<target name="build" depends="lint" description="Meta target, spouští ostatní targety"/>
-
-	<target name="main">
-		<echo message="Phing works!"/>
-	</target>
 
 	<target name="cleanup" description="Workspace cleanup">
 		<delete dir="${project.basedir}/build"/>
