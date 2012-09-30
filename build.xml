@@ -1,5 +1,5 @@
 <project name="symfony-test" default="build">
-	<target name="build" depends="prepare, lint, phpunit" description="Meta target, spouští ostatní targety"/>
+	<target name="build" depends="prepare, lint, phpunit, phpcs" description="Meta target, spouští ostatní targety"/>
 
 	<fileset id="collabimTests" dir="${project.basedir}/vendor/collabim">
 		<include name="**/*.php"/>
@@ -28,5 +28,13 @@
 				<fileset refid="collabimTests" />
 			</batchtest>
 		</phpunit>
+	</target>
+
+	<target name="phpcs" depends="prepare" description="PHP_CodeSniffer checks">
+		<phpcodesniffer standard="Zend">
+			<fileset refid="collabimTests"/>
+			<formatter type="default" usefile="false"/>
+			<formatter type="checkstyle" outfile="${project.basedir}/build/checkstyle-phpcs.xml"/>
+		</phpcodesniffer>
 	</target>
 </project>
