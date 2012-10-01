@@ -1,5 +1,5 @@
 <project name="symfony-test" default="build">
-	<target name="build" depends="prepare, lint, phpunit, phpcs, phpcpd, phpmd" description="Meta target, spouští ostatní targety"/>
+	<target name="build" depends="prepare, lint, phpunit, phpcs, phpcpd, phpmd, phpcb" description="Meta target, spouští ostatní targety"/>
 
 	<fileset id="collabimTests" dir="${project.basedir}/vendor/collabim">
 		<include name="**/*.php"/>
@@ -50,5 +50,9 @@
 			<fileset refid="collabimTests"/>
 			<formatter type="xml" outfile="${project.basedir}/build/pmd.xml"/>
 		</phpmd>
+	</target>
+
+	<target name="phpcb" depends="phpcs, phpcpd, phpmd" description="Generates PHP_CodeBrowser summary">
+		<exec command="phpcb --log ${project.basedir}/build --source ${project.basedir} --output ${project.basedir}/build/code-browser" logoutput="true" />
 	</target>
 </project>
