@@ -1,5 +1,5 @@
 <project name="symfony-test" default="build">
-	<target name="build" depends="prepare, lint, phpunit, phpcs" description="Meta target, spouští ostatní targety"/>
+	<target name="build" depends="prepare, lint, phpunit, phpcs, phpcpd" description="Meta target, spouští ostatní targety"/>
 
 	<fileset id="collabimTests" dir="${project.basedir}/vendor/collabim">
 		<include name="**/*.php"/>
@@ -36,5 +36,12 @@
 			<formatter type="default" usefile="false"/>
 			<formatter type="checkstyle" outfile="${project.basedir}/build/checkstyle-phpcs.xml"/>
 		</phpcodesniffer>
+	</target>
+
+	<target name="phpcpd" depends="prepare" description="PHP copy paste detector">
+		<phpcpd>
+			<fileset refid="collabimTests"/>
+			<formatter type="pmd" outfile="${project.basedir}/build/pmd-cpd.xml"/>
+		</phpcpd>
 	</target>
 </project>
