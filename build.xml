@@ -1,5 +1,5 @@
 <project name="symfony-test" default="build">
-	<target name="build" depends="prepare, lint, phpunit, phpcs, phpcpd" description="Meta target, spouští ostatní targety"/>
+	<target name="build" depends="prepare, lint, phpunit, phpcs, phpcpd, phpmd" description="Meta target, spouští ostatní targety"/>
 
 	<fileset id="collabimTests" dir="${project.basedir}/vendor/collabim">
 		<include name="**/*.php"/>
@@ -43,5 +43,12 @@
 			<fileset refid="collabimTests"/>
 			<formatter type="pmd" outfile="${project.basedir}/build/pmd-cpd.xml"/>
 		</phpcpd>
+	</target>
+
+	<target name="phpmd" depends="prepare" description="PHP Mass Detector">
+		<phpmd rulesets="${project.basedir}/phpmd.xml">
+			<fileset refid="collabimTests"/>
+			<formatter type="xml" outfile="${project.basedir}/build/pmd.xml"/>
+		</phpmd>
 	</target>
 </project>
