@@ -27,6 +27,6 @@ return array(
     'Doctrine\\Bundle\\DoctrineBundle' => $vendorDir . '/doctrine/doctrine-bundle/',
     'CG\\' => $vendorDir . '/jms/cg/src/',
     'Assetic' => $vendorDir . '/kriswallsmith/assetic/src/',
-	'Collabim'  => $vendorDir . '/collabim/src',
+	'Collabim'  => $vendorDir . '/collabim/src/',
     '' => $baseDir . '/src/',
 );

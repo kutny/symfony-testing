@@ -58,7 +58,7 @@ swiftmailer:
     password:  "%mailer_password%"
     spool:     { type: memory }
 
-services:
-    acme_hello.hello:
-        class: Acme\HelloBundle\Controller\HelloController
-        arguments: [@templating]
+jms_di_extra:
+    locations:
+        all_bundles: true
+        directories: ["%kernel.root_dir%/../src", "%kernel.root_dir%/../vendor/collabim/src"]
