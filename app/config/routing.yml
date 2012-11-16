@@ -11,10 +11,14 @@
 #    resource: "@AcmeHelloBundle/Controller"
 #    type: annotation
 
-hello2:
+route.hello2:
     pattern:  /hello2/{name}
     defaults: { _controller: AcmeHelloBundle:Hello2:index }
 
-hello3:
+route.hello3:
     pattern:  /hello3/{name}
     defaults: { _controller: AcmeHelloBundle:Hello3:index }
+
+route.formTest:
+    pattern:  /form-test
+    defaults: { _controller: AcmeHelloBundle:FormTest:index }
