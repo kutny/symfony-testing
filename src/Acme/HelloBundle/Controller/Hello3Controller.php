@@ -3,9 +3,13 @@ namespace Acme\HelloBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
 class Hello3Controller extends Controller
 {
+	/**
+	 * @Route("/hello3/{name}")
+	 */
 	public function indexAction($name)
 	{
 		/** @var $pokus \Collabim\Pokus */

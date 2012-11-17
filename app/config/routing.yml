@@ -3,22 +3,6 @@
 #    resource: "@FrameworkBundle/Resources/config/routing/internal.xml"
 #    prefix:   /_internal
 
-#hello:
-#    pattern:  /hello/{name}
-#    defaults: { _controller: AcmeHelloBundle:Hello:index }
-
-#AcmeHelloBundle:
-#    resource: "@AcmeHelloBundle/Controller"
-#    type: annotation
-
-route.hello2:
-    pattern:  /hello2/{name}
-    defaults: { _controller: controller.hello2:indexAction }
-
-route.hello3:
-    pattern:  /hello3/{name}
-    defaults: { _controller: AcmeHelloBundle:Hello3:index }
-
-route.formTest:
-    pattern:  /form-test
-    defaults: { _controller: AcmeHelloBundle:FormTest:index }
+AcmeHelloBundle:
+    resource: "@AcmeHelloBundle/Controller"
+    type: annotation

@@ -4,9 +4,13 @@ namespace Acme\HelloBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
 class FormTestController extends Controller
 {
+	/**
+	 * @Route("/form-test", name="route.formTest")
+	 */
 	public function indexAction(Request $request)
 	{
 		$form = $this->prepareForm();
