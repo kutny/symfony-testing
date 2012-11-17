@@ -1,28 +1,21 @@
 <?php
 namespace Acme\HelloBundle\Controller;
 
-use JMS\DiExtraBundle\Annotation\Inject;
-
 class Hello2Controller
 {
-	/**
-	 * @var \Symfony\Bundle\TwigBundle\TwigEngine
-	 * @Inject
-	 */
-	private $templating;
+	private $twigEngine;
 
-	/**
-	 * @Inject
-	 */
-	private $kernel;
+	public function __construct(\Symfony\Bundle\TwigBundle\TwigEngine $twigEngine) {
+		$this->twigEngine = $twigEngine;
+	}
 
 	public function indexAction($name)
 	{
-		return $this->templating->renderResponse(
+		return $this->twigEngine->renderResponse(
 			'AcmeHelloBundle:Hello2:index.html.twig',
 			array(
 				'name' => $name,
-				'myVariable' => 'Jirka ' . $this->kernel->getRootDir()
+				'myVariable' => 'Jirka'
 			)
 		);
 	}

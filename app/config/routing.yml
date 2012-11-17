@@ -13,7 +13,7 @@
 
 route.hello2:
     pattern:  /hello2/{name}
-    defaults: { _controller: AcmeHelloBundle:Hello2:index }
+    defaults: { _controller: controller.hello2:indexAction }
 
 route.hello3:
     pattern:  /hello3/{name}

@@ -1,0 +1,11 @@
+services:
+
+  pokus:
+    class: Collabim\Pokus
+    arguments: [%myTestOption%]
+
+  pokus2:
+    class: Collabim\Pokus2
+
+  controller.hello2:
+    class: Acme\HelloBundle\Controller\Hello2Controller
