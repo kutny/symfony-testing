@@ -36,7 +36,7 @@ class FormTest2Controller
 
 	/**
 	 * @Route("/form-test2", name="route.formTest2")
-	 * @Template("AcmeHelloBundle:FormTest2:index.html.twig")
+	 * @Template
 	 */
 	public function indexAction(Request $request)
 	{
