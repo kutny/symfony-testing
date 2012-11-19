@@ -16,22 +16,22 @@ class Product
 	 * @ORM\Column(name="id", type="integer")
 	 * @ORM\GeneratedValue(strategy="AUTO")
 	 */
-	protected $id;
+	private $id;
 
 	/**
 	 * @ORM\Column(type="string", length=100)
 	 */
-	protected $name;
+	private $name;
 
 	/**
 	 * @ORM\Column(type="decimal", scale=2)
 	 */
-	protected $price;
+	private $price;
 
 	/**
 	 * @ORM\Column(type="text")
 	 */
-	protected $description;
+	private $description;
 
 
     /**

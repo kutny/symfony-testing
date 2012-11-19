@@ -17,33 +17,33 @@ class TestEntity
 	 * @ORM\Column(name="id", type="integer")
 	 * @ORM\GeneratedValue(strategy="AUTO")
 	 */
-	protected $id;
+	private $id;
 
 	/**
 	 * @Assert\MaxLength(3)
 	 * @ORM\Column(type="string", length=3)
 	 */
-	protected $note;
+	private $note;
 
 	/**
 	 * @ORM\Column(type="date")
 	 */
-	protected $dueDate;
+	private $dueDate;
 
 	/**
 	 * @ORM\Column(type="boolean")
 	 */
-	protected $trueFalse;
+	private $trueFalse;
 
 	/**
 	 * @ORM\Column(type="integer")
 	 */
-	protected $chooseItem;
+	private $chooseItem;
 
 	/**
 	 * @ORM\Column(type="string")
 	 */
-	protected $email;
+	private $email;
 
     /**
      * Get id
