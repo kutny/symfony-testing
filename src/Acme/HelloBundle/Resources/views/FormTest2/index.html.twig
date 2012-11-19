@@ -1,0 +1,10 @@
+{% if app.session.hasFlash('notice') %}
+    <div class="flash-notice" style="padding: 5px; border: 1px solid red">
+        {{ app.session.flash('notice') }}
+    </div>
+{% endif %}
+
+<form action="{{ path('route.formTest2') }}" method="post" {{ form_enctype(form) }}>
+    {{ form_widget(form) }}
+    <input type="submit" />
+</form>

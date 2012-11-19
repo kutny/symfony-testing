@@ -9,3 +9,17 @@ services:
 
   controller.hello2:
     class: Acme\HelloBundle\Controller\Hello2Controller
+
+  controller.form_test2:
+    class: Acme\HelloBundle\Controller\FormTest2Controller
+
+  facade.fetch_products_facade:
+    class: Acme\HelloBundle\Facade\FetchProductsFacade
+
+  facade.insert_test_entity_facade:
+    class: Acme\HelloBundle\Facade\InsertTestEntityFacade
+    arguments: [@doctrine.orm.default_entity_manager]
+
+  repository.products_repository:
+    class: Acme\HelloBundle\Repository\ProductsRepository
+    arguments: [@doctrine.orm.default_entity_manager]

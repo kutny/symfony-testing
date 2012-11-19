@@ -58,3 +58,6 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+
+jms_di_extra:
+    doctrine_integration: false
