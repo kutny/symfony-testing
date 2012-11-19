@@ -20,9 +20,10 @@ class TestPostForm extends AbstractType
 
 		$builder->add('trueFalse', new \Symfony\Component\Form\Extension\Core\Type\CheckboxType());
 
-		$builder->add('select', new \Symfony\Component\Form\Extension\Core\Type\ChoiceType(), array(
+		$builder->add('chooseItem', new \Symfony\Component\Form\Extension\Core\Type\ChoiceType(), array(
 			'choices' => array(
-				1 => 'Jirka'
+				1 => 'Jirka',
+				2 => 'Pepa'
 			)
 		));
 
