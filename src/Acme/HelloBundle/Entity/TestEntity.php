@@ -3,6 +3,7 @@
 namespace Acme\HelloBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
@@ -19,6 +20,7 @@ class TestEntity
 	protected $id;
 
 	/**
+	 * @Assert\MaxLength(3)
 	 * @ORM\Column(type="string", length=3)
 	 */
 	protected $note;

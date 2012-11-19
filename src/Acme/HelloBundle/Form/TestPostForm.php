@@ -10,9 +10,6 @@ class TestPostForm extends AbstractType
 	public function buildForm(\Symfony\Component\Form\FormBuilderInterface $builder, array $options)
 	{
 		$builder->add('note', 'text', array(
-			'constraints' => array(
-				new \Symfony\Component\Validator\Constraints\MaxLength(3)
-			),
 			'label' => 'Some custom label' // NOTE: we should NOT set label here for the HTML coder/designer to be able to change it
 		));
 
