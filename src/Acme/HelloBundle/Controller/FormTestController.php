@@ -16,12 +16,11 @@ class FormTestController extends Controller
 		$form = $this->prepareForm();
 
 		if ($request->getMethod() === 'POST') {
-			$this->saveForm($form, $request);
+			return $this->saveForm($form, $request);
 		}
-
-		return $this->render('AcmeHelloBundle:FormTest:index.html.twig', array(
-			'form' => $form->createView()
-		));
+		else {
+			return $this->renderTemplate($form);
+		}
 	}
 
 	private function prepareForm()
@@ -38,8 +37,17 @@ class FormTestController extends Controller
 		if ($form->isValid()) {
 			$this->get('session')->setFlash('notice', 'Your changes were saved!');
 
-			$this->redirect($this->generateUrl('route.formTest'));
+			return $this->redirect($this->generateUrl('route.formTest'));
 		}
+		else {
+			return $this->renderTemplate($form);
+		}
+	}
+
+	private function renderTemplate(\Symfony\Component\Form\Form $form) {
+		return $this->render('AcmeHelloBundle:FormTest:index.html.twig', array(
+			'form' => $form->createView()
+		));
 	}
 
 }
