@@ -1,17 +1,10 @@
 services:
 
-  pokus:
-    class: Collabim\Pokus
-    arguments: [%myTestOption%]
-
-  pokus2:
-    class: Collabim\Pokus2
+  controller.form_test2:
+    class: Acme\HelloBundle\Controller\FormTest2Controller
 
   controller.hello2:
     class: Acme\HelloBundle\Controller\Hello2Controller
-
-  controller.form_test2:
-    class: Acme\HelloBundle\Controller\FormTest2Controller
 
   facade.fetch_products_facade:
     class: Acme\HelloBundle\Facade\FetchProductsFacade
@@ -19,6 +12,13 @@ services:
   facade.insert_test_entity_facade:
     class: Acme\HelloBundle\Facade\InsertTestEntityFacade
     arguments: [@doctrine.orm.default_entity_manager]
+
+  pokus2:
+    class: Collabim\Pokus2
+
+  pokus:
+    class: Collabim\Pokus
+    arguments: [%myTestOption%]
 
   repository.products_repository:
     class: Acme\HelloBundle\Repository\ProductsRepository
