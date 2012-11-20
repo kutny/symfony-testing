@@ -51,7 +51,12 @@ class AutowiringTestPass implements CompilerPassInterface
 
 		$servicesConfigData = \Symfony\Component\Yaml\Yaml::parse($data);
 
-		return array_keys($servicesConfigData['services']);
+		if (is_array($servicesConfigData['services'])) {
+			return array_keys($servicesConfigData['services']);
+		}
+		else {
+			return array();
+		}
 	}
 
 }
