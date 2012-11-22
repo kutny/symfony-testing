@@ -13,6 +13,9 @@ services:
     class: Acme\HelloBundle\Facade\InsertTestEntityFacade
     arguments: [@doctrine.orm.default_entity_manager]
 
+  form.testPostForm:
+    class: Acme\HelloBundle\Form\TestPostForm
+
   pokus2:
     class: Collabim\Pokus2
 

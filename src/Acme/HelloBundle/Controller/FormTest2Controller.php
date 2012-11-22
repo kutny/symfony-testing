@@ -21,17 +21,20 @@ class FormTest2Controller
 	private $insertTestEntityFacade;
 	private $session;
 	private $router;
+	private $testPostForm;
 
 	public function __construct(
 		FormFactory $formFactory,
 		Facade\InsertTestEntityFacade $insertTestEntityFacade,
 		Session $session,
-		Router $router
+		Router $router,
+		\Acme\HelloBundle\Form\TestPostForm $testPostForm
 	) {
 		$this->formFactory = $formFactory;
 		$this->insertTestEntityFacade = $insertTestEntityFacade;
 		$this->session = $session;
 		$this->router = $router;
+		$this->testPostForm = $testPostForm;
 	}
 
 	/**
@@ -58,7 +61,7 @@ class FormTest2Controller
 		$testEntity->setNote('some default note');
 		$testEntity->setChooseItem(2);
 
-		return $this->formFactory->create(new \Acme\HelloBundle\Form\TestPostForm(), $testEntity);
+		return $this->formFactory->create($this->testPostForm, $testEntity);
 	}
 
 	private function saveForm(\Symfony\Component\Form\Form $form, Request $request)
