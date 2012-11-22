@@ -80,6 +80,7 @@ class FormTest2Controller
 
 	private function prepareTemplateValues(\Symfony\Component\Form\Form $form) {
 		return array(
+			'heading' => 'Ahoj formuláři<script>alert()</script>',
 			'form' => $form->createView()
 		);
 	}
