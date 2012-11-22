@@ -3,6 +3,7 @@ namespace Acme\HelloBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
@@ -39,33 +40,26 @@ class FormTest2Controller
 
 	/**
 	 * @Route("/form-test2", name="route.formTest2")
-	 * @Template
+	 * @Template("AcmeHelloBundle:FormTest2:index.html.twig")
+	 * @Method("GET")
 	 */
-	public function indexAction(Request $request)
+	public function indexAction()
 	{
 		$testEntity = new \Acme\HelloBundle\Entity\TestEntity();
-
 		$form = $this->prepareForm($testEntity);
 
-		if ($request->getMethod() === 'POST') {
-			return $this->saveForm($form, $request);
-		}
-		else {
-			return $this->prepareTemplateValues($form);
-		}
+		return $this->prepareTemplateValues($form);
 	}
 
-	private function prepareForm(\Acme\HelloBundle\Entity\TestEntity $testEntity)
-	{
-		// set form default values
-		$testEntity->setNote('some default note');
-		$testEntity->setChooseItem(2);
+	/**
+	 * @Route("/form-test2")
+	 * @Template("AcmeHelloBundle:FormTest2:index.html.twig")
+	 * @Method("POST")
+	 */
+	public function processAction(Request $request) {
+		$testEntity = new \Acme\HelloBundle\Entity\TestEntity();
 
-		return $this->formFactory->create($this->testPostForm, $testEntity);
-	}
-
-	private function saveForm(\Symfony\Component\Form\Form $form, Request $request)
-	{
+		$form = $this->formFactory->create($this->testPostForm, $testEntity);
 		$form->bind($request);
 
 		if ($form->isValid()) {
@@ -79,6 +73,15 @@ class FormTest2Controller
 		else {
 			return $this->prepareTemplateValues($form);
 		}
+	}
+
+	private function prepareForm(\Acme\HelloBundle\Entity\TestEntity $testEntity)
+	{
+		// set form default values
+		$testEntity->setNote('some default note');
+		$testEntity->setChooseItem(2);
+
+		return $this->formFactory->create($this->testPostForm, $testEntity);
 	}
 
 	private function prepareTemplateValues(\Symfony\Component\Form\Form $form) {
