@@ -12,6 +12,17 @@ $loader = new ApcClassLoader('sf2', $loader);
 $loader->register(true);
 */
 
+function vd($data) {
+	echo '<pre>';
+	var_dump($data);
+	echo '</pre>';
+}
+
+function vdx($data) {
+	vd($data);
+	exit;
+}
+
 require_once __DIR__.'/../app/AppKernel.php';
 //require_once __DIR__.'/../app/AppCache.php';
 
